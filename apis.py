@@ -1,11 +1,13 @@
 import requests
 
+URL = "http://api.openweathermap.org/data/2.5/weather"
+API_KEY = "88723180e3c19e3235dfaf41df75b619"
+
 def get_weather(city, api_key, units='imperial'):
     """
     Fetches current weather for a city.
     Units: 'metric' (Celsius), 'imperial' (Fahrenheit), or 'standard' (Kelvin).
     """
-    URL = "http://api.openweathermap.org/data/2.5/weather"
     
     # Parameters for the API call
     params = {
@@ -40,7 +42,5 @@ def get_weather(city, api_key, units='imperial'):
     except Exception as e:
         print(f"An unexpected error occurred! {e}")
 
-if __name__ == "__main__":
-    API_KEY = "88723180e3c19e3235dfaf41df75b619"
-    city = input("Enter a city name: ")
-    get_weather(city, API_KEY, units='imperial')
+city = input("Enter a city name: ")
+get_weather(city, API_KEY, units='imperial')
